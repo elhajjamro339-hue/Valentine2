@@ -52,28 +52,20 @@ button {
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.2s, font-size 0.2s;
     font-weight: bold;
     color: white;
 }
 
-#yesBtn {
-    background-color: #28a745; /* أخضر */
-}
+#yesBtn { background-color: #28a745; } /* أخضر */
+#noBtn { background-color: #dc3545; }  /* أحمر */
 
-#noBtn {
-    background-color: #dc3545; /* أحمر */
-}
-
-.hidden {
-    display: none;
-}
+.hidden { display: none; }
 </style>
 </head>
 <body>
 
 <div id="container">
-    <!-- GIF البداية يمكن تغييره -->
+    <!-- GIF البداية -->
     <img id="mainGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaW94am93bmZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6JnB0PWFjdGl2ZV9mZWVk/c76IJLufpN61i/giphy.gif" alt="GIF">
     
     <h1 id="questionText">Will you be my Valentine? ❤️</h1>
@@ -107,11 +99,17 @@ noBtn.addEventListener('click', () => {
     } else {
         // آخر ضغط No
         questionText.innerText = "Stop messing with me 😠";
-        mainGif.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaW94am93bmZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6JnB0PWFjdGl2ZV9mZWVk/ICOgUNoJGvSU0/giphy.gif"; // يمكن تغييره
+        mainGif.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHpwaW94am93bmZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6JnB0PWFjdGl2ZV9mZWVk/ICOgUNoJGvSU0/giphy.gif"; // GIF يمكنك تغييره
         noBtn.classList.add('hidden'); // إخفاء زر No
     }
 });
 
 yesBtn.addEventListener('click', () => {
     questionText.innerText = "Thank you! I knew it! ❤️";
-    mainGif.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI
+    mainGif.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaW94am93bmZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6JnB0PWFjdGl2ZV9mZWVk/l4pTdcifPKUYM/giphy.gif"; // GIF يمكنك تغييره
+    yesBtn.classList.add('hidden'); // إخفاء زر Yes
+});
+</script>
+
+</body>
+</html>
