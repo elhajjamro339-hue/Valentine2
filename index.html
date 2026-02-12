@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will You Be My Valentine?</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* التنسيقات التي وضعتها أنت */
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -19,6 +14,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow: hidden;
         }
 
         .container {
@@ -35,21 +31,6 @@
             color: #ff6b9d;
             font-size: 2.5em;
             margin-bottom: 20px;
-            animation: bounce 1s infinite;
-        }
-
-        .gif-container {
-            margin: 30px 0;
-            height: 250px;
-            overflow: hidden;
-            border-radius: 15px;
-            background: #f0f0f0;
-        }
-
-        .gif-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .buttons-container {
@@ -57,7 +38,6 @@
             gap: 20px;
             justify-content: center;
             margin: 30px 0;
-            flex-wrap: wrap;
         }
 
         button {
@@ -68,60 +48,55 @@
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
-            text-transform: uppercase;
         }
 
         .yes-btn {
             background: #ff6b9d;
             color: white;
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .yes-btn:hover {
-            background: #ff4757;
-            transform: scale(1.1);
-            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
         }
 
         .no-btn {
             background: #95afc0;
             color: white;
-            flex: 1;
-            min-width: 120px;
             position: relative;
         }
+    </style>
+</head>
+<body>
 
-        .no-btn:hover {
-            transform: translateX(-20px);
+    <div class="container">
+        <h1 id="question">هل تقبلين أن تكوني الفالنتاين الخاص بي؟ ❤️</h1>
+        
+        <div class="buttons-container">
+            <button class="yes-btn" onclick="celebrate()">نعم بالتأكيد!</button>
+            <button class="no-btn" id="noBtn" onmouseover="moveButton()">لا</button>
+        </div>
+
+        <div id="message" style="display:none;">
+            <h2 style="color: #ff6b9d;">رائع! 🎉😍</h2>
+            <p>كنت أعلم أنك ستوافقين!</p>
+        </div>
+    </div>
+
+    <script>
+        // وظيفة تجعل زر "لا" يهرب من الماوس
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
         }
 
-        .message {
-            display: none;
-            margin-top: 30px;
-            padding: 20px;
-            background: #fff5e6;
-            border-left: 5px solid #ff6b9d;
-            border-radius: 10px;
-            animation: slideIn 0.5s ease;
+        // وظيفة عند الضغط على "نعم"
+        function celebrate() {
+            document.getElementById('question').style.display = 'none';
+            document.querySelector('.buttons-container').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+            document.body.style.backgroundColor = '#ff6b9d';
         }
-
-        .message h2 {
-            color: #ff6b9d;
-            margin-bottom: 10px;
-        }
-
-        .message p {
-            color: #333;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        .celebration {
-            display: none;
-            margin-top: 20px;
-            font-size: 2em;
-        }
-
-        @keyframes bounce {
-
+    </script>
+</body>
+</html>
